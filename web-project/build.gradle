@@ -6,7 +6,19 @@ apply plugin: 'war'
 
 sourceCompatibility = 1.8
 
+def springVersion = '4.3.7.RELEASE'
+
 repositories {
     mavenCentral()
     mavenLocal()
+}
+
+dependencies {
+    compile 'javax.servlet:servlet-api:2.5'
+    compile 'javax.servlet.jsp:jsp-api:2.1'
+    compile 'org.springframework:spring-webmvc:' + springVersion
+    compile 'org.springframework:spring-core:' + springVersion
+    compile 'org.springframework:spring-web:' + springVersion
+    compile 'org.springframework:spring-core:' + springVersion
+    runtime 'javax.servlet:jstl:1.1.2'
 }
