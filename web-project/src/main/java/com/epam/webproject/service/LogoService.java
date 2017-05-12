@@ -1,10 +1,11 @@
 package com.epam.webproject.service;
 
-import com.epam.webproject.domain.Author;
-
-import java.util.Collection;
-import java.util.Optional;
+import org.springframework.core.io.Resource;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface LogoService {
 
+    void store(MultipartFile file);
+
+    Resource load();
 }
