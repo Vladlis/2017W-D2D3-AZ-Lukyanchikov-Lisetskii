@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service()
+@Service
 public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
@@ -21,12 +21,5 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDao.getAll().stream()
                 .filter(author -> name.equals(author.getName()))
                 .findFirst();
-    }
-
-    @Override
-    public Collection<Author> getFromCountry(String country) {
-        return authorDao.getAll().stream()
-                .filter(author -> country.equals(author.getCountry()))
-                .collect(Collectors.toList());
     }
 }

@@ -18,24 +18,11 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookDao bookDao;
-    @Autowired
-    private AuthorService authorService;
 
     @Override
     public Optional<Book> getByName(String name) {
         return bookDao.getAll().stream()
                 .filter(author -> name.equals(author.getName()))
                 .findFirst();
-    }
-
-    @Override
-    public Collection<Book> getByAuthor(String authorName) {
-        Author author = authorService.getByName(authorName).orElse(null);
-        if (author == null) {
-            return Collections.EMPTY_LIST;
-        }
-        return bookDao.getAll().stream()
-                .filter(book -> author.getId() == book.getAuthorId())
-                .collect(Collectors.toList());
     }
 }

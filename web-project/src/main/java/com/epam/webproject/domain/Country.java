@@ -5,13 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "book")
-public class Book {
+@Table(name = "country")
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,10 +20,6 @@ public class Book {
 
     @Column(name="name", nullable = false)
     private String name;
-
-    @OneToOne
-    @JoinColumn(name = "author")
-    private Author author;
 
     public int getId() {
         return id;
@@ -40,20 +37,11 @@ public class Book {
         this.name = name;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
     @Override
     public String toString() {
-        return "Book{" +
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", author=" + author.getName() +
                 '}';
     }
 }
